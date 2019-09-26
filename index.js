@@ -52,13 +52,28 @@ bot.on('ready', function(){
 
 bot.on("message", function(message){
     if(message.content.startsWith(prefix)){
-        if(message.content.substr(prefix.length) == "stats"){
+        var messageSubstr = message.content.substr(prefix.length);
+        var messageList = messageSubstr.split(" ");
+        console.log(messageList);
+        var cmd = messageList[0];
+        var args = [0];
+        if(messageList.length > 1){
+            var iargs = 1;
+            while(iargs < messageList.length){
+                var iargsi = iargs - 1;
+                args[iargsi] = messageList[iargs];
+                console.log(args[iargsi]);
+                iargs++;
+            }
+        }
+        console.log(args);
+        if(cmd == "stats"){
             message.channel.send("MC: " + memberCount + " OBC: " + onlineBotsCount + " OAC: " + onlineAllCount + " OC: " + onlineCount);
         }
-        if(message.content.substr(prefix.length) == "czesc"){
-            message.reply('No czesc!');
+        if(cmd == "czesc"){
+            message.reply('No czesc!'); 
         }
-        if(message.content.substr(prefix.length) == "join-channel"){
+        if(cmd == "join-channel"){
             if(message.member.voiceChannel){
                 if(!message.guild.voiceConnection){
                     message.member.voiceChannel.join()
@@ -69,6 +84,14 @@ bot.on("message", function(message){
             } else{
                 message.reply('You must be in voice channel');
             } 
+        }
+        if(cmd == "repeat"){
+            var irepeat = 0;
+            console.log("REPEAT: " + args);
+            while(irepeat < args.length){
+                message.channel.send(args[irepeat]);
+                irepeat++;
+            }
         }
     } else{
         //do nothing
