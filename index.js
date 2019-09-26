@@ -57,7 +57,6 @@ bot.on("message", function(message){
         }
         if(message.content.substr(prefix.length) == "czesc"){
             message.reply('No czesc!');
-            message.channel.send('Co tam? ' + message.author + ' Nadal robisz tego bota?');  
         }
         if(message.content.substr(prefix.length) == "join-channel"){
             if(message.member.voiceChannel){
