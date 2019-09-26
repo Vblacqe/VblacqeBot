@@ -71,7 +71,7 @@ bot.on("message", function(message){
             message.channel.send("MC: " + memberCount + " OBC: " + onlineBotsCount + " OAC: " + onlineAllCount + " OC: " + onlineCount);
         }
         if(cmd == "czesc"){
-            message.reply('No czesc!'); 
+            message.reply('No cześć!'); 
         }
         if(cmd == "join-channel"){
             if(message.member.voiceChannel){
