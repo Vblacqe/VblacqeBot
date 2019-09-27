@@ -56,8 +56,8 @@ bot.on("message", function(message){
         var messageList = messageSubstr.split(" ");
         console.log(messageList);
         var cmd = messageList[0];
-        var args = [0];
-        if(messageList.length > 1){
+        //var args = [0];
+        /*if(messageList.length > 1){
             var iargs = 1;
             while(iargs < messageList.length){
                 var iargsi = iargs - 1;
@@ -65,13 +65,36 @@ bot.on("message", function(message){
                 console.log(args[iargsi]);
                 iargs++;
             }
+        }*/
+        /*var iargs = 1;
+        while(iargs < messageList.length){
+            var iargsi = iargs - 1;
+            var args = [null];
+            args[iargsi] = messageList[iargs];
+            console.log(args[iargsi]);
+            iargs++;
+        }*/
+        /*iargs = 1;
+        while(iargs < messageList.length){
+            var iargsi = iargs - 1;
+            //args.push(messageList[iargs]);
+            var args
+            console.log(args[iargsi]);
+            iargs++;
+        }*/
+        //messageList.forEach{}
+        var args = messageList;
+        args.shift();
+        try{
+            console.log(args);
+        } catch (error){
+
         }
-        console.log(args);
         if(cmd == "stats"){
             message.channel.send("MC: " + memberCount + " OBC: " + onlineBotsCount + " OAC: " + onlineAllCount + " OC: " + onlineCount);
         }
         if(cmd == "czesc"){
-            message.reply('No cześć!'); 
+            message.reply('No czesc!'); 
         }
         if(cmd == "join-channel"){
             if(message.member.voiceChannel){
@@ -87,6 +110,10 @@ bot.on("message", function(message){
         }
         if(cmd == "repeat"){
             var irepeat = 0;
+            if(args[0] == undefined){
+                message.channel.send("Nie podano argumentów " + message.author);
+                return;
+            }
             console.log("REPEAT: " + args);
             while(irepeat < args.length){
                 message.channel.send(args[irepeat]);
@@ -98,4 +125,4 @@ bot.on("message", function(message){
     }
 });
 
-bot.login(process.env.BOT_TOKEN);
+bot.login("NjI3MDQwNTMzMzczNTE3ODMy.XY23Cw.-faLtJFKfRGSPlbUaH0o3Ks8yko");
