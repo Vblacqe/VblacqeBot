@@ -26,8 +26,9 @@ bot.on('ready', function(){
         memberCount = guild.members.filter(member => !member.user.bot).size;
         memberCountChannel = bot.channels.get("547805078787194891");
         botsCount = guild.members.filter(member => member.user.bot).size;
-        onlineBotsCount = botsCount.filter(m => !m.presence.status === 'offline').size;
-        onlineAllCount = guild.members.filter(m => !m.presence.status === 'offline').size;
+        bots = guild.members.filter(member => member.user.bot);
+        onlineBotsCount = bots.filter(m => m.presence.status !== 'offline').size;
+        onlineAllCount = guild.members.filter(m => m.presence.status !== 'offline').size;
         onlineCount = onlineAllCount - onlineBotsCount;
         onlineCountChannel = bot.channels.get("542346614917038091");
         console.log("MC: " + memberCount + " OBC: " + onlineBotsCount + " OAC: " + onlineAllCount + " OC: " + onlineCount);
@@ -126,4 +127,4 @@ bot.on("message", function(message){
     }
 });
 
-bot.login();
+bot.login("NjI3MDQwNTMzMzczNTE3ODMy.XY3F6w.quKukOPgMDEw3JNQjT6fjhR9r-w");
