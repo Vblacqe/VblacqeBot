@@ -25,8 +25,9 @@ bot.on('ready', function(){
         //var counterc = bot.channels.get("626325593516015616");
         memberCount = guild.members.filter(member => !member.user.bot).size;
         memberCountChannel = bot.channels.get("547805078787194891");
-        onlineBotsCount = guild.members.filter(member => member.user.bot).size;
-        onlineAllCount = guild.members.filter(m => m.presence.status === 'online').size;
+        botsCount = guild.members.filter(member => member.user.bot).size;
+        onlineBotsCount = botsCount.filter(m => !m.presence.status === 'offline').size;
+        onlineAllCount = guild.members.filter(m => !m.presence.status === 'offline').size;
         onlineCount = onlineAllCount - onlineBotsCount;
         onlineCountChannel = bot.channels.get("542346614917038091");
         console.log("MC: " + memberCount + " OBC: " + onlineBotsCount + " OAC: " + onlineAllCount + " OC: " + onlineCount);
