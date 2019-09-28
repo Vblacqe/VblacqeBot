@@ -45,7 +45,7 @@ bot.on('ready', function(){
         //console.log(irekord);
         if(onlineCount > parseInt(irekord)){
             console.log('>> if(onlineCount > parseInt(irekord)) : true');
-            rekordChannelName.setName("🌟 Rekord: " + onlineCount +" 🌟");
+            rekordChannel.setName("🌟 Rekord: " + onlineCount +" 🌟");
         } else{
             console.log('>> if(onlineCount > parseInt(irekord)) : false');
         }
@@ -127,4 +127,4 @@ bot.on("message", function(message){
     }
 });
 
-bot.login(process.env.BOT_TOKEN);
+bot.login("NjI3MDQwNTMzMzczNTE3ODMy.XY3F6w.quKukOPgMDEw3JNQjT6fjhR9r-w");
